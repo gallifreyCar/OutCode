@@ -1,5 +1,7 @@
 package com.gallifrey.outcode;
 
+import com.gallifrey.outcode.dao.DiscussPostMapper;
+import com.gallifrey.outcode.entity.DiscussPost;
 import org.junit.runner.RunWith;
 import com.gallifrey.outcode.dao.UserMapper;
 import com.gallifrey.outcode.entity.User;
@@ -10,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Date;
+import java.util.List;
 
 
 @SpringBootTest
@@ -17,6 +20,8 @@ import java.util.Date;
 public class MapperTests {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private DiscussPostMapper discussPostMapper;
 
     @Test
     public void testSelectUser() {
@@ -53,5 +58,15 @@ public class MapperTests {
         System.out.println(rows);
     }
 
+    @Test
+    public void testSelectDiscussPosts() {
+        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 20);
+        for (DiscussPost post : list) {
+            System.out.println(post);
+        }
+
+        int rows = discussPostMapper.selectDiscussPostRows(149);
+        System.out.println(rows);
+    }
 
 }
