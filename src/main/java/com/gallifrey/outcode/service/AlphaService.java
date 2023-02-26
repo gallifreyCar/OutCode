@@ -10,10 +10,10 @@ import javax.annotation.PreDestroy;
 
 @Service
 //修改默认的单例模式为多例模式
-//@Scope("prototype")
+@Scope("prototype")
 public class AlphaService {
 
-//    依赖注入有三种方法，不推荐字段注入(IOC耦合过高，循环依赖)，尝试构造器注入，或者setter注入(适合可选对象注入)
+    //    依赖注入有三种方法，不推荐字段注入(IOC耦合过高，循环依赖)，尝试构造器注入，或者setter注入(适合可选对象注入)
     @Autowired
     private AlphaDao alphaDao;
 
@@ -27,13 +27,13 @@ public class AlphaService {
 //    }
 
 
-    public AlphaService(){
+    public AlphaService() {
         System.out.println("实例化AlphaService");
     }
 
     //构造器后使用
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println("初始化AlphaService");
     }
 
@@ -43,7 +43,7 @@ public class AlphaService {
         System.out.println("销毁AlphaService");
     }
 
-    public String find(){
-       return alphaDao.select();
+    public String find() {
+        return alphaDao.select();
     }
 }
