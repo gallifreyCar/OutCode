@@ -1,6 +1,7 @@
 
 ## 前期配置
-该项目的配置文件部分配置因为涉及到隐私问题是没有填写的（********内容），你可以注释掉`spring.profiles.active=local`填入内容
+该项目的配置文件部分配置因为涉及到隐私问题是没有填写的（********内容）
+你可以注释掉`spring.profiles.active=local`填入内容
 或者按照下面的方法配置
 
 1.在本地创建一个名为application-local.properties的文件
